@@ -1,0 +1,71 @@
+using System;
+
+namespace assignment3_gp_lastedition
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.Write(" Please write down a number : ");
+            int valcome = Convert.ToInt32(Console.ReadLine());
+
+            int[] arrayel = new int[valcome+1];
+            for (int i = 0; i < valcome+1; i++)
+            {
+                arrayel[i] = i;
+            }
+
+            int semvent = 2;
+            while (semvent * semvent <= valcome)
+            {
+                if (arrayel[semvent] > 0)
+                {
+                    bool cengo = true;
+                    while (cengo)
+                    {
+                        for (int i = semvent * 2; i <= valcome; i += semvent)
+                        {
+                            arrayel[i] = 0;
+                        }
+                        cengo = false;
+                        break;
+                    }
+
+                }
+                semvent++;
+
+            }
+
+            int numbPri = 0;
+            Console.Write("\n Here the prime nubers between 1 and " + valcome + " :");
+            int sel = 2;
+            while (sel <= valcome)
+            {
+                if (arrayel[sel] > 0)
+                {
+                    Console.Write(" " + sel + " ");
+                    numbPri++;
+                }
+                sel++;
+            }
+
+            Console.WriteLine("\n");
+            int[] Pbers = new int[numbPri];
+            int j = 0;
+            int hel = 2;
+            while (hel <= valcome)
+            {
+                if (arrayel[hel] > 0)
+                {
+                    Pbers[j++] = hel;
+                }
+                hel++;
+            }
+            
+
+        } 
+}
+
+}
+
+
